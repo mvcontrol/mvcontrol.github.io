@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
-    <title>DreamCraft3D: Hierarchical 3D Generation with Bootstrapped Diffusion Prior</title>
+    <title>MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation</title>
 	<link rel="icon" type="image/x-icon" href="../assets/css/images/favicon.ico">
-    <meta content="DreamCraft3D: Hierarchical 3D Generation with Bootstrapped Diffusion Prior" name="description" />
+    <meta content="MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation" name="description" />
     <meta content="summary" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="static/css/template.css" rel="stylesheet" type="text/css" />
@@ -43,10 +43,11 @@
 <body>
     <div class="section hero nerf-_v2">
         <div class="container-2 nerf_header_v2 w-container">
-            <h1 class="nerf_title_v2">DreamCraft3D: Hierarchical 3D Generation with Bootstrapped Diffusion Prior</h1>
-            <div class="nerf_subheader_v2">Arxiv 2023</div>
+            <h1 class="nerf_title_v2">MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation</h1>
+            <div class="nerf_subheader_v2">CVPR 2024</div>
             <div class="nerf_subheader_v2">
-                <div>
+                Anonymous authors
+                <!-- <div>
                     <a href="https://mrtornado24.github.io/" target="_blank" class="nerf_authors_v2">Jingxiang Sun<span
                             class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
                     <a href="https://bo-zhang.me/" target="_blank" class="nerf_authors_v2">Bo Zhang<span
@@ -77,7 +78,7 @@
                         <i class="fa-brands fa-github"></i> Code </a>
                     <a class="btn btn-large btn-light" href="https://youtu.be/0FazXENkQms" role="button" target="_blank" disabled>
                         <i class="fa-brands fa-youtube"></i> Video </a>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -89,18 +90,14 @@
         <div class="w-container grey_container">
             <h2 class="grey-heading_nerf">Abstract</h2>
             <p class="paragraph-3 nerf_text nerf_results_text">
-                We present DreamCraft3D, a hierarchical 3D content generation method that produces high-fidelity and coherent 3D objects. We tackle the problem by leveraging
-                a 2D reference image to guide the stages of geometry sculpting and texture boosting. A central focus of this work is to address the consistency issue that existing
-                works encounter. To sculpt geometries that render coherently, we perform score
-                distillation sampling via a view-dependent diffusion model. This 3D prior, alongside several training strategies, prioritizes the geometry consistency but compromises the texture fidelity. 
-                We further propose <b style="color: rgb(124, 196, 245);">Bootstrapped Score Distillation (BSD)</b> to
-                specifically boost the texture. We train a personalized diffusion model, Dreambooth, on the augmented renderings of the scene, imbuing it with 3D knowledge
-                of the scene being optimized. The score distillation from this 3D-aware diffusion prior provides view-consistent guidance for the scene. Notably, through an
-                alternating optimization of the diffusion prior and 3D scene representation, we
-                achieve mutually reinforcing improvements: the optimized 3D scene aids in training the scene-specific diffusion model, which offers increasingly view-consistent
-                guidance for 3D optimization. The optimization is thus bootstrapped and leads
-                to substantial texture boosting. With tailored 3D priors throughout the hierarchical generation, DreamCraft3D generates coherent 3D objects with photorealistic
-                renderings, advancing the state-of-the-art in 3D content generation.
+                We introduce MVControl, a novel neural network architecture that enhances existing pre-trained multi-view 2D diffusion models by incorporating additional input 
+                conditions, e.g. edge maps. Our approach enables the generation of controllable multi-view images and view-consistent 3D content. To achieve controllable multi-view 
+                image generation, we leverage MVDream as our base model, and train a new neural network module as additional plugin for end-to-end task-specific condition learning. 
+                To precisely control the shapes and views of generated images, we innovatively propose a new conditioning mechanism that predicts an embedding encapsulating the input 
+                spatial and view conditions, which is then injected to the network globally. Once MVControl is trained, score-distillation (SDS) loss based optimization can be performed 
+                to generate 3D content, in which process we propose to use a hybrid diffusion prior. The hybrid prior relies on a pre-trained Stable-Diffusion network and our trained 
+                MVControl for additional guidance. Extensive experiments demonstrate that our method achieves robust generalization and enables the controllable generation of high-quality 
+                3D content.
                 <br>
                 <!-- <img  src="assets/images/overview.png"> -->
             </p>
@@ -149,20 +146,17 @@
     <div class="white_section_nerf  w-container">
         <h2 class="grey-heading_nerf">Method Overview</h2>
         <div class="grid-container-1">
-            <img src="assets_dreamcraft3d/images/diagram-1.png">
+            <img src="assets_mvcontrol/images/overview_mvcontrol.png">
 
-            <p>DreamCraft3D leverages a 2D image generated from the text prompt and uses it to guide
-                the stages of geometry sculpting and texture boosting. When sculpting the geometry, the view-
-                conditioned diffusion model provides crucial 3D guidance to ensure geometric consistency. We
-                then dedicately improve the texture quality by conducting a cyclic optimization. We augment the
-                multi-view renderings and use them to finetune a diffusion model, DreamBooth, to offer multi-view
-                consistent gradients to optimize the scene. We term the loss that distills from an evolving diffusion
-                prior as bootstrapped distillation sampling.
+            <p>Overview of proposed method. (a) MVControl consists of a frozen multi-view diffusion model and a trainable MVControl. (b)
+                Our model takes care of all input conditions to control the generation process both locally and globally through a conditioning module.
+                (c) Once MVControl is trained, we can exploit it to serve a hybrid diffusion prior for controllable text-to-3D content generation via SDS
+                optimization procedure.
             </p>
         </div>
     </div>
 
-<div class="white_section_nerf grey_container w-container">
+<!-- <div class="white_section_nerf grey_container w-container">
 <h2 class="grey-heading_nerf">BibTeX</h2>
 <div class="bibtex">
     <pre><code>@misc{sun2023dreamcraft3d,
@@ -174,11 +168,11 @@
         primaryClass={cs.CV}
   }</code></pre>
 </div>
-</div>
+</div> -->
 
 </body>
 <footer>
-    This project page is inspired by <a href="https://sweetdreamer3d.github.io/">SweetDreamer</a>.
+    This project page is inspired by <a href="https://mrtornado24.github.io/DreamCraft3D/">DreamCraft3D</a>.
 </footer>
 
 </html>
