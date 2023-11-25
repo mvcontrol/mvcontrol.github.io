@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <head>
     <meta charset="utf-8" />
-    <title>DreamCraft3D: Hierarchical 3D Generation with Bootstrapped Diffusion Prior</title>
+    <title>MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation</title>
 	<link rel="icon" type="image/x-icon" href="../assets/css/images/favicon.ico">
-    <meta content="DreamCraft3D: Hierarchical 3D Generation with Bootstrapped Diffusion Prior" name="description" />
+    <meta content="MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation" name="description" />
     <meta content="summary" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="static/css/template.css" rel="stylesheet" type="text/css" />
@@ -44,67 +43,37 @@
 <body>
     <div class="section hero nerf-_v2">
         <div class="container-2 nerf_header_v2 w-container">
-            <h1 class="nerf_title_v2">DreamCraft3D: Hierarchical 3D Generation with Bootstrapped Diffusion Prior</h1>
-            <div class="nerf_subheader_v2">Arxiv 2023</div>
+            <h1 class="nerf_title_v2">MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation</h1>
+            <div class="nerf_subheader_v2">CVPR 2024</div>
             <div class="nerf_subheader_v2">
-                <div>
-                    <a href="https://mrtornado24.github.io/" target="_blank" class="nerf_authors_v2">Jingxiang Sun<span
-                            class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
-                    <a href="https://bo-zhang.me/" target="_blank" class="nerf_authors_v2">Bo Zhang<span
-                            class="text-span_nerf"></span></a><sup> 3</sup>,&nbsp;&nbsp;
-                    <a href="https://dsaurus.github.io/saurus/" target="_blank" class="nerf_authors_v2">Ruizhi Shao<span
-                            class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
-                    <a href="https://lizhenwangt.github.io/" target="_blank" class="nerf_authors_v2">Lizhen Wang<span
-                        class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
-                    <a href="https://github.com/StevenLiuWen" target="_blank" class="nerf_authors_v2">Wen Liu<span
-                        class="text-span_nerf"></span></a><sup> 2</sup>,&nbsp;&nbsp;
-                    <a href="https://zdaxie.github.io/" target="_blank" class="nerf_authors_v2">Zhenda Xie<span
-                        class="text-span_nerf"></span></a><sup> 2</sup>,&nbsp;&nbsp;
-                    <a href="https://liuyebin.com/" target="_blank" class="nerf_authors_v2">Yebin Liu<span
-                            class="text-span_nerf"></span></a><sup> 1</sup>
-                </div>
-                <div>
-                    <h1 class="nerf_affiliation_v2"><sup>1 </sup>Tsinghua University</h1>,
-                    <h1 class="nerf_affiliation_v2"><sup>2 </sup>DeepSeek AI</h1>,
-                    <h1 class="nerf_affiliation_v2"><sup>3 </sup>Independent Researcher</h1>
-                </div>
-
-                <div class="external-link">
-                    <a class="btn" href="https://arxiv.org/abs/2310.16818" role="button" target="_blank">
-                        <i class="ai ai-arxiv"></i> Arxiv </a>
-                    <a class="btn" href="paper/Paper_high_res.pdf" role="button" target="_blank">
-                        <i class="fa fa-file-pdf"></i> Paper </a>
-                    <a class="btn" href="https://github.com/deepseek-ai/DreamCraft3D" role="button" target="_blank" disabled>
-                        <i class="fa-brands fa-github"></i> Code </a>
-                    <a class="btn btn-large btn-light" href="https://youtu.be/0FazXENkQms" role="button" target="_blank" disabled>
-                        <i class="fa-brands fa-youtube"></i> Video </a>
-                </div>
+                Anonymous authors
 
             </div>
         </div>
 
     </div>
 
+
     <div class="white_section_nerf  w-container">
         <h2 class="grey-heading_nerf">Results Gallery (16 - 23 / 40)</h2>
         <div class="grid-container-1">
             <div>
             <p class="myprompt nerf_text">Super Saiyan Goku unleashes a massive energy wave while standing on top of a mountain            </p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/saiyan_00.mp4"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets_mvcontrol/videos/car.mp4"></video>
             </div>
         </div>
         <div class="grid-container-1">
             <div>
             <p class="myprompt nerf_text">A robotic OWL in a hat and boots, fantasy, dreamlike, surrealism, super
                 cute, trending on artstation, MAN teacher, Lap top </p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/owl.mp4"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets_mvcontrol/videos/fat_cat.mp4"></video>
             </div>
         </div>
         <div class="grid-container-1">
             <div>
             <p class="myprompt nerf_text">A blonde ginger gentleman in light brown pinstripe double breasted suit,
                 standing in a park            </p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/gentleman.mp4"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets_mvcontrol/videos/monster.mp4"></video>
             </div>
         </div>
         <div class="grid-container-1">
@@ -112,35 +81,22 @@
             <p class="myprompt nerf_text">View of Sydney Opera House, showcasing its unique sail-like design and
                 waterfront location
             </p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/sydney_opera.mp4"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets_mvcontrol/videos/knight.mp4"></video>
             </div>
         </div>
         <div class="grid-container-1">
             <div>
             <p class="myprompt nerf_text">A banana peeling itself</p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/banana.mp4"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets_mvcontrol/videos/TMNT.mp4"></video>
             </div>
         </div>
         <div class="grid-container-1">
             <div>
             <p class="myprompt nerf_text">A beagle in a detective's out</p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/beagle.mp4"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets_mvcontrol/videos/bird.mp4"></video>
             </div>
         </div>
-        <div class="grid-container-1">
-            <div>
-            <p class="myprompt nerf_text">A cat with a big carp koi and a sword on a white background,
-                samurai cat, cat warrior, armored cat, anthropomorphic cat ninja, samurai deity
-                with koi armor</p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/cat_carp.mp4"></video>
-            </div>
-        </div>
-        <div class="grid-container-1">
-            <div>
-            <p class="myprompt nerf_text">A dachsund dressed up in a hotdog costume            </p>
-            <video class="video" loop playsinline autoPlay muted src="assets_dreamcraft3d/videos/dachsund.mp4"></video>
-            </div>
-        </div>
+
         <div class="grid-container-2">
             <a class="mybtn" href="dmtet-based-gallery_4.html" role="button">
             < Last Page </a>
@@ -153,7 +109,7 @@
 
 </body>
 <footer>
-    This project page is inspired by <a href="https://sweetdreamer3d.github.io/">SweetDreamer</a>.
+    This project page is inspired by <a href="https://mrtornado24.github.io/DreamCraft3D/">DreamCraft3D</a>.
 </footer>
 
 </html>
