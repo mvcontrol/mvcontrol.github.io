@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
-    <title>MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation</title>
+    <title>Controllable Text-to-3D Generation via Surface-Aligned Gaussian Splatting</title>
 	<link rel="icon" type="image/x-icon" href="../assets/css/images/favicon.ico">
-    <meta content="MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation" name="description" />
+    <meta content="Controllable Text-to-3D Generation via Surface-Aligned Gaussian Splatting" name="description" />
     <meta content="summary" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="static/css/template.css" rel="stylesheet" type="text/css" />
@@ -48,7 +48,7 @@
 <body>
     <div class="section hero nerf-_v2">
         <div class="container-2 nerf_header_v2 w-container">
-            <h1 class="nerf_title_v2">MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation</h1>
+            <h1 class="nerf_title_v2">Controllable Text-to-3D Generation via Surface-Aligned Gaussian Splatting</h1>
 <!--             <div class="nerf_subheader_v2">CVPR 2024</div> -->
             <div class="nerf_subheader_v2">
                 Anonymous authors
@@ -95,14 +95,7 @@
         <div class="w-container grey_container">
             <h2 class="grey-heading_nerf">Abstract</h2>
             <p class="paragraph-3 nerf_text nerf_results_text">
-                We introduce MVControl, a novel neural network architecture that enhances existing pre-trained multi-view 2D diffusion models by incorporating additional input 
-                conditions, e.g. edge maps. Our approach enables the generation of controllable multi-view images and view-consistent 3D content. To achieve controllable multi-view 
-                image generation, we leverage MVDream as our base model, and train a new neural network module as additional plugin for end-to-end task-specific condition learning. 
-                To precisely control the shapes and views of generated images, we innovatively propose a new conditioning mechanism that predicts an embedding encapsulating the input 
-                spatial and view conditions, which is then injected to the network globally. Once MVControl is trained, score-distillation (SDS) loss based optimization can be performed 
-                to generate 3D content, in which process we propose to use a hybrid diffusion prior. The hybrid prior relies on a pre-trained Stable-Diffusion network and our trained 
-                MVControl for additional guidance. Extensive experiments demonstrate that our method achieves robust generalization and enables the controllable generation of high-quality 
-                3D content.
+                While text-to-3D and image-to-3D generation tasks have received considerable attention, one important but under-explored field between them is <strong>controllable text-to-3D generation</strong>, which we mainly focus on in this work. To address this task, <strong>1)</strong> we introduce <strong>ControlNet (MVControl)</strong>, a novel neural network architecture designed to enhance existing pre-trained multi-view diffusion models by integrating additional input conditions, such as edge, depth, normal, and scribble maps. Our innovation lies in the introduction of a conditioning module that controls the base diffusion model using both local and global embeddings, which are computed from the input condition images and camera poses. Once trained, MVControl is able to offer 3D diffusion guidance for optimization-based 3D generation. And, <strong>2)</strong> we propose an efficient <strong>multi-stage 3D generation pipeline</strong> that leverages the benefits of recent large reconstruction models and score distillation algorithm. Building upon our MVControl architecture, we employ a unique hybrid diffusion guidance method to direct the optimization process. In pursuit of efficiency, we adopt 3D Gaussians as our representation instead of the commonly used implicit representations. We also pioneer the use of <strong>SuGaR</strong>, a hybrid representation that binds Gaussians to mesh triangle faces. This approach alleviates the issue of poor geometry in 3D Gaussians and enables the direct sculpting of fine-grained geometry on the mesh. Extensive experiments demonstrate that our method achieves robust generalization and enables the controllable generation of high-quality 3D content.
                 <br>
                 <!-- <img  src="assets/images/overview.png"> -->
             </p>
@@ -112,12 +105,9 @@
     <div class="white_section_nerf  w-container">
         <h2 class="grey-heading_nerf">Method Overview</h2>
         <div class="grid-container-1">
-            <img src="assets_mvcontrol/images/overview_mvcontrol.png">
+            <img src="assets/figs/3dpipeline.jpg">
 
-            <p>Overview of proposed method. (a) MVControl consists of a frozen multi-view diffusion model and a trainable MVControl. (b)
-                Our model takes care of all input conditions to control the generation process both locally and globally through a conditioning module.
-                (c) Once MVControl is trained, we can exploit it to serve a hybrid diffusion prior for controllable text-to-3D content generation via SDS
-                optimization procedure.
+            <p><strong>Overview of proposed method</strong>. The multi-stage pipeline can efficiently generate high-quality textured meshes starting from a set of coarse Gaussians generated by LGM, with the input being the multi-view images generated by our MVControl. In the second stage, we employ a 2D & 3D hybrid diffusion prior for Gaussian optimization. Finally, in the third stage, we calculate the VSD loss to refine the SuGaR representation.
             </p>
         </div>
     </div>
@@ -197,6 +187,16 @@
             <div class="single-result-3Dblock" id="crown-scribble"></div>        
         </div>
 
+    </div>
+
+    <div class="white_section_nerf  w-container">
+        <h2 class="grey-heading_nerf">Diverse Controllable Multi-view Image Generation</h2>
+        <div class="grid-container-1">
+            <img src="assets/figs/diversity_2d.jpg">
+
+            <p><strong>Diverse generated multi-view images of MVControl.</strong> Our MVControl can generate diverse multi-view images with same condition image and prompt.
+            </p>
+        </div>
     </div>
 
 <script>
@@ -299,13 +299,13 @@
 
 
 <div class="white_section_nerf grey_container w-container">
-    <h2 class="grey-heading_nerf">BibTeX</h2>
+    <h2 class="grey-heading_nerf">Citation</h2>
     <div class="bibtex">
         <pre><code>
-    @misc{mvcontrol2023,
-        title={MVControl: Adding Conditional Control to Multi-view Diffusion for Controllable Text-to-3D Generation}, 
+    @article{mvcontrol2024,
+        title={Controllable Text-to-3D Generation via Surface-Aligned Gaussian Splatting}, 
         author={Anonymous Authors},
-        year={2023},
+        year={2024},
         journal={under review},
     }
         </code></pre>
